@@ -1,0 +1,28 @@
+{
+  "name": "deadzone-dev-launcher",
+  "version": "1.0.0",
+  "description": "A Custom Launcher focused on local development for the Dead Zone Revive Project.",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . \"DeadZone DEV Launcher\" --out=build --platform=win32 --arch=x64 --icon=./assets/logo.ico --extraResource=./assets/logo.png --overwrite",
+    "pack": "build --dir"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorgrodriguesm7/deadzone-dev-launcher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorgrodriguesm7/deadzone-dev-launcher/issues"
+  },
+  "homepage": "https://github.com/victorgrodriguesm7/deadzone-dev-launcher#readme",
+  "devDependencies": {
+    "electron": "^39.2.6"
+  },
+  "dependencies": {
+    "electron-packager": "^17.1.2"
+  }
+}
