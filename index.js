@@ -1,4 +1,7 @@
 const { app, BrowserWindow } = require('electron');
+const { addFlashPlayerLib } = require("./src/flashlib");
+
+addFlashPlayerLib(app);
 
 function createWindow() {
     const mainWindow = new BrowserWindow({
