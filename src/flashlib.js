@@ -27,10 +27,8 @@ function getPluginPath(){
 function addFlashPlayerLib(app){
     const pluginPath = getPluginPath();
 
-    console.log(pluginPath);
-
     if (pluginPath){
-        return app.commandLine.appendSwitch("ppapi-flash-path", path.join(__dirname, pluginPath));
+        return app.commandLine.appendSwitch("ppapi-flash-path", path.join(__dirname, "..", pluginPath));
     }
 
     console.warn("OS Probabily not supported!");
