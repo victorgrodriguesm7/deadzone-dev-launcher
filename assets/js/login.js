@@ -8,18 +8,8 @@ const
 
 form.addEventListener("submit", onFormSubmit);
 
-const flashvars = {
-    path: "/game/",
-    service: "pio",
-    affiliate: "",
-    useSSL: "0",
-    gameId: "laststand-deadzone",
-    connectionId: "public",
-    clientAPI: "javascript",
-    playerInsightSegments: "",
-    playCodes: "",
-    userToken: "",
-    clientInfo: "{}"
+const params = {
+    userToken: ""
 }
 
 /**
@@ -48,13 +38,13 @@ async function onFormSubmit(e){
 
         const data = await response.json();
 
-        flashvars.userToken = data.token;
+        params.userToken = data.token;
 
-        const flashVarsAsQueryParams = new URLSearchParams(flashvars).toString();
+        const paramsNeeded = new URLSearchParams(params).toString();
 
         handleRemember(payload);
 
-        window.location.href = `game.html?${flashVarsAsQueryParams}`;
+        window.location.href = `game.html?${paramsNeeded}`;
     } catch (e) {
         console.error("Error parsing JSON:", e);
         alert("Error! Check Console")
