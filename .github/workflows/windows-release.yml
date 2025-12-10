@@ -1,0 +1,42 @@
+name: Build Windows Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create .env file
+        run: |
+          echo API_BASE_URL=http://localhost:8080 >> .env
+          echo LOCAL_ASSETS_URL=http://localhost:3000 >> .env
+          echo LOCAL_ASSETS_PORT=3000 >> .env
+
+      - name: Run build
+        run: npm run build
+
+      - name: Compress build
+        run: |
+          powershell Compress-Archive -Path "build/*" -DestinationPath "DeadZone-Launcher.zip"
+
+      - name: Upload Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: DeadZone-Launcher.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
