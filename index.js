@@ -1,6 +1,7 @@
-require('dotenv').config()
-
 const path = require("path");
+
+require('dotenv').config({ path: __dirname + "/.env" })
+
 const { app, session, BrowserWindow  } = require('electron');
 const { addFlashPlayerLib } = require("./src/flashlib");
 const { startServer } = require("./src/server");

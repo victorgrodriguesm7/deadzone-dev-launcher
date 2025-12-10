@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . \"DeadZone DEV Launcher\" --out=build --platform=win32 --arch=x64 --icon=./assets/logo.ico --extraResource=./assets/logo.png --overwrite",
+    "build": "electron-packager . \"DeadZone DEV Launcher\" --out=build --platform=win32 --arch=x64 --icon=./assets/logo.ico --extraResource=./assets/logo.png --overwrite --extraResource=./.env",
     "pack": "build --dir"
   },
   "repository": {
