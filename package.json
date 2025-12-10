@@ -23,6 +23,7 @@
     "electron": "^39.2.6"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "electron-packager": "^17.1.2"
   }
 }
