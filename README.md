@@ -11,7 +11,7 @@ P.S: The Launcher will always look for the server in the `http://localhost:8080/
 
 # Todo
 
-- [ ] Make it simple to test local servers
+- [X] Make it simple to test local servers
 - [ ] Add AutoLogin Option
 - [ ] Add Debug Options
 - [ ] Migrate to Tauri
